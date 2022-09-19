@@ -1,0 +1,370 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="860.0" prefWidth="1300.0" style="-fx-background-color: #5F9EA0;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.kp_db.AdminController">
+   <children>
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="10.0" mnemonicParsing="false" onAction="#back" prefHeight="40.0" prefWidth="150.0" text="Назад" />
+      <ComboBox fx:id="tablesList" layoutX="1141.0" layoutY="806.0" prefWidth="150.0" />
+      <TabPane fx:id="tbTables" layoutY="57.0" prefHeight="807.0" prefWidth="1314.0" rotateGraphic="true" style="-fx-background-color: #708090;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab fx:id="tabUsers" text="Пользователи">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="584.0" prefWidth="1103.0">
+                     <children>
+                        <TableView fx:id="tableView" editable="true" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                          <columns>
+                            <TableColumn fx:id="columnID" editable="false" prefWidth="75.0" text="id" />
+                            <TableColumn fx:id="columnLogin" editable="false" prefWidth="145.0" text="login" />
+                              <TableColumn fx:id="columnPassword" editable="false" prefWidth="146.0" text="password" />
+                              <TableColumn fx:id="columnRole" editable="false" prefWidth="98.0" text="role" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="searchUser" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" promptText="findUsers">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="refreshBtn" layoutX="812.0" layoutY="58.0" mnemonicParsing="false" onAction="#refreshTable" prefHeight="25.0" prefWidth="138.0" text="Обновить таблицу" />
+                        <Button fx:id="deleteBtn" layoutX="1128.0" layoutY="478.0" mnemonicParsing="false" onAction="#deleteUser" prefHeight="40.0" prefWidth="160.0" text="Удалить пользователя" />
+                        <Button fx:id="regUserBtn" layoutX="958.0" layoutY="528.0" mnemonicParsing="false" onAction="#regUser" prefHeight="40.0" prefWidth="330.0" text="Зарегистрировать пользователя" />
+                        <Button fx:id="updateUser" layoutX="959.0" layoutY="428.0" mnemonicParsing="false" onAction="#updateUser" prefHeight="40.0" prefWidth="330.0" text="Получить данные" />
+                        <TextField fx:id="loginField" layoutX="958.0" layoutY="240.0" prefWidth="330.0" />
+                        <Label layoutX="957.0" layoutY="212.0" prefHeight="17.0" prefWidth="62.0" text="Логин" />
+                        <TextField fx:id="passwField" layoutX="958.0" layoutY="305.0" prefWidth="330.0" />
+                        <Label layoutX="959.0" layoutY="281.0" prefHeight="18.0" prefWidth="59.0" text="Пароль" />
+                        <TextField fx:id="roleField" layoutX="958.0" layoutY="367.0" prefWidth="330.0" />
+                        <Label fx:id="errorLabel" layoutX="959.0" layoutY="402.0" text="Label" />
+                        <Label layoutX="957.0" layoutY="342.0" prefHeight="17.0" prefWidth="62.0" text="Роль" />
+                        <Button fx:id="changeBtn" layoutX="959.0" layoutY="478.0" mnemonicParsing="false" onAction="#changeUserData" prefHeight="40.0" prefWidth="160.0" text="Изменить" />
+                        <Label layoutX="14.0" layoutY="6.0" text="Search" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabClients" text="Клиенты">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="usersTable" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="Column X" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="tField_search_client" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <TableView fx:id="tb_clients" layoutX="10.0" layoutY="70.0" prefHeight="650.0" prefWidth="990.0">
+                           <columns>
+                              <TableColumn fx:id="client_col_ID" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="client_col_sName" prefWidth="118.0" text="Прізвище" />
+                              <TableColumn fx:id="client_col_name" prefWidth="100.0" text="Ім'я" />
+                              <TableColumn fx:id="client_col_patron" prefWidth="120.0" text="По-батькові" />
+                              <TableColumn fx:id="client_col_phone" prefWidth="127.0" text="Моб. телефон" />
+                              <TableColumn fx:id="client_col_email" prefWidth="290.0" text="електронна адреса" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="tField_clients_id" layoutX="1010.0" layoutY="165.0" prefHeight="25.0" prefWidth="270.0" />
+                        <TextField fx:id="tField_clients_sName" layoutX="1010.0" layoutY="215.0" prefHeight="25.0" prefWidth="270.0" />
+                        <TextField fx:id="tField_clients_email" layoutX="1010.0" layoutY="415.0" prefHeight="25.0" prefWidth="270.0" />
+                        <TextField fx:id="tField_clients_patron" layoutX="1010.0" layoutY="315.0" prefHeight="25.0" prefWidth="270.0" />
+                        <TextField fx:id="tField_clients_name" layoutX="1010.0" layoutY="265.0" prefHeight="25.0" prefWidth="270.0" />
+                        <TextField fx:id="tField_clients_mobPhone" layoutX="1010.0" layoutY="365.0" prefHeight="25.0" prefWidth="270.0" />
+                        <Label layoutX="1010.0" layoutY="136.0" text="ID" />
+                        <Label layoutX="1010.0" layoutY="190.0" text="Прізвище" />
+                        <Label layoutX="1010.0" layoutY="240.0" text="Ім'я" />
+                        <Label layoutX="1010.0" layoutY="290.0" text="По-батькові" />
+                        <Label layoutX="1010.0" layoutY="346.0" text="Мобільний телефон" />
+                        <Label layoutX="1010.0" layoutY="390.0" text="Електронна адреса" />
+                        <Button fx:id="addClientBtn" layoutX="1010.0" layoutY="518.0" mnemonicParsing="false" onAction="#addClient" prefHeight="40.0" prefWidth="130.0" text="Додати" />
+                        <Button fx:id="changeClientBtn" layoutX="1150.0" layoutY="518.0" mnemonicParsing="false" onAction="#changeClient" prefHeight="40.0" prefWidth="130.0" text="Змінити" />
+                        <Button fx:id="deleteClientBtn" layoutX="1010.0" layoutY="575.0" mnemonicParsing="false" onAction="#deleteClient" prefHeight="40.0" prefWidth="270.0" text="Видалити" />
+                     </children>
+                  </AnchorPane>
+               </content>
+          </Tab>
+            <Tab fx:id="tabEmployees" text="Работники">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="785.0" prefWidth="1084.0">
+                     <children>
+                        <TextField fx:id="text_field_searchEmployees" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <TextField fx:id="tField_employees_id" layoutX="958.0" layoutY="180.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_employees_surname" layoutX="958.0" layoutY="245.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_employees_email" layoutX="958.0" layoutY="565.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_employees_name" layoutX="958.0" layoutY="310.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_employees_patron" layoutX="958.0" layoutY="370.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_employees_addres" layoutX="958.0" layoutY="435.0" prefHeight="25.0" prefWidth="330.0" />
+                        <Button fx:id="changeEmployeesBtn" layoutX="958.0" layoutY="625.0" mnemonicParsing="false" onAction="#changeEmployees" prefHeight="40.0" prefWidth="160.0" text="Змінити " />
+                        <Button fx:id="addEmployeesBtn" layoutX="1128.0" layoutY="625.0" mnemonicParsing="false" onAction="#addEmployees" prefHeight="40.0" prefWidth="160.0" text="Додати" />
+                        <Button fx:id="deleteEmployeesBtn" layoutX="958.0" layoutY="675.0" mnemonicParsing="false" onAction="#deleteEmployees" prefHeight="40.0" prefWidth="330.0" text="Видалити рядок" />
+                        <Label layoutX="958.0" layoutY="155.0" text="ID" />
+                        <Label layoutX="958.0" layoutY="218.0" text="Прізвище" />
+                        <Label layoutX="958.0" layoutY="287.0" text="Ім'я" />
+                        <Label layoutX="958.0" layoutY="351.0" text="По-батькові" />
+                        <Label layoutX="958.0" layoutY="410.0" text="Адреса" />
+                        <Label layoutX="958.0" layoutY="476.0" text="Мобільний телефон" />
+                        <Label layoutX="958.0" layoutY="539.0" text="Електронна адреса" />
+                        <TableView fx:id="tb_Employees" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                           <columns>
+                              <TableColumn fx:id="employees_col_id" prefWidth="38.0" text="ID" />
+                              <TableColumn fx:id="employees_col_sName" prefWidth="106.0" text="Прізвище" />
+                              <TableColumn fx:id="employees_col_iName" prefWidth="112.0" text="Ім'я" />
+                              <TableColumn fx:id="employees_col_patron" prefWidth="116.0" text="По-батькові" />
+                              <TableColumn fx:id="employees_col_addres" prefWidth="127.0" text="Адреса" />
+                              <TableColumn fx:id="employees_col_mobPhone" prefWidth="120.0" text="Моб. телефон" />
+                              <TableColumn fx:id="employees_col_email" prefWidth="190.0" text="електронна адреса" />
+                              <TableColumn fx:id="employees_col_dateWork" prefWidth="140.0" text="Прийнятий до Роботи" />
+                           </columns>
+                        </TableView>
+                        <TextField fx:id="tField_employees_mobPhone" layoutX="958.0" layoutY="493.0" prefHeight="25.0" prefWidth="330.0" />
+                        <DatePicker fx:id="picker_start_Ework" layoutX="957.0" layoutY="595.0" />
+                        <Label layoutX="1141.0" layoutY="599.0" text="Дата прийняття на роботу" />
+                        <Button fx:id="searchEmployBtn" layoutX="519.0" layoutY="40.0" mnemonicParsing="false" onAction="#searchEmploy" text="Знайти" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabOrders" text="Заказы">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="778.0" prefWidth="1314.0">
+                     <children>
+                        <TextField fx:id="text_field_searchOrders" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <TextField fx:id="tField_order_cost" layoutX="958.0" layoutY="500.0" prefHeight="25.0" prefWidth="330.0" />
+                        <Button fx:id="deleteOrderBtn" layoutX="958.0" layoutY="610.0" mnemonicParsing="false" onAction="#deleteOrder" prefHeight="40.0" prefWidth="330.0" text="Видалити рядок" />
+                        <Button fx:id="addOrderBtn" layoutX="1128.0" layoutY="560.0" mnemonicParsing="false" onAction="#addOrder" prefHeight="40.0" prefWidth="160.0" text="Додати" />
+                        <Button fx:id="chengeOrderBtn" layoutX="958.0" layoutY="560.0" mnemonicParsing="false" onAction="#changeOrder" prefHeight="40.0" prefWidth="160.0" text="Змінити" />
+                        <TextField fx:id="tField_order_id" layoutX="958.0" layoutY="115.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_order_idClient" layoutX="958.0" layoutY="180.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_order_idEmployee" layoutX="958.0" layoutY="245.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tFIled_order_idOrderType" layoutX="958.0" layoutY="305.0" prefHeight="25.0" prefWidth="330.0" />
+                        <Label layoutX="958.0" layoutY="85.0" text="ID" />
+                        <Label layoutX="958.0" layoutY="152.0" text="ID Клієнту" />
+                        <Label layoutX="958.0" layoutY="218.0" text="ID працівника" />
+                        <Label layoutX="958.0" layoutY="281.0" text="ID виду замовлення" />
+                        <Label layoutX="958.0" layoutY="342.0" text="Дата створення замовлення" />
+                        <Label layoutX="958.0" layoutY="410.0" text="Дата виконання" />
+                        <Label layoutX="958.0" layoutY="475.0" text="Вартість" />
+                        <TableView fx:id="tb_Order" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                           <columns>
+                              <TableColumn fx:id="order_col_id" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="order_col_id_client" prefWidth="75.0" text="ID Клієнту" />
+                              <TableColumn fx:id="order_col_id_worker" prefWidth="103.0" text="ID Працівника" />
+                              <TableColumn fx:id="order_col_id_type" prefWidth="126.0" text="IDвиду замовл" />
+                              <TableColumn fx:id="order_col_date_start" minWidth="9.0" prefWidth="153.0" text="Створення замовлення" />
+                              <TableColumn fx:id="order_col_date_end" minWidth="3.0" prefWidth="138.0" text="Виконаний" />
+                              <TableColumn fx:id="order_col_cost" minWidth="0.0" prefWidth="173.0" text="Вартість" />
+                              <TableColumn fx:id="order_col_name" prefWidth="106.0" text="Назва" />
+                           </columns>
+                        </TableView>
+                        <DatePicker fx:id="dateStartOrder" layoutX="959.0" layoutY="374.0" />
+                        <DatePicker fx:id="dateEndOrder" layoutX="959.0" layoutY="435.0" />
+                        <TextField fx:id="tField_order_name" layoutX="958.0" layoutY="535.0" prefHeight="25.0" prefWidth="330.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabMetrics" text="ХарактеристикиЗаказов">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="text_field_search_metrics" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <TableView fx:id="tbMetrics" layoutX="5.0" layoutY="86.0" prefHeight="650.0" prefWidth="950.0">
+                          <columns>
+                            <TableColumn fx:id="metrics_col_idOrder" prefWidth="107.0" text="ID Замовлення" />
+                            <TableColumn fx:id="metrics_col_views" prefWidth="101.0" text="Перегляди" />
+                              <TableColumn fx:id="metrics_col_clics" prefWidth="77.0" text="Кліки" />
+                              <TableColumn fx:id="metrics_col_unicUsers" prefWidth="173.0" text="Кількість ун. користувачів" />
+                          </columns>
+                        </TableView>
+                        <TextField fx:id="tField_metrics_idOrder" layoutX="958.0" layoutY="135.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_metrics_views" layoutX="958.0" layoutY="200.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_metrics_clicks" layoutX="958.0" layoutY="265.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_metrics_unicUsers" layoutX="958.0" layoutY="330.0" prefHeight="25.0" prefWidth="330.0" />
+                        <Button fx:id="changeMetricsBtn" layoutX="958.0" layoutY="425.0" mnemonicParsing="false" onAction="#changeMetics" prefHeight="40.0" prefWidth="330.0" text="Змінити" />
+                        <Button fx:id="deleteMetricksBtn" layoutX="958.0" layoutY="478.0" mnemonicParsing="false" onAction="#deleteMetricks" prefHeight="40.0" prefWidth="330.0" text="Видалити рядок" />
+                        <Label layoutX="958.0" layoutY="103.0" text="ID  замовлення" />
+                        <Label layoutX="958.0" layoutY="170.0" text="Перегляди" />
+                        <Label layoutX="958.0" layoutY="240.0" text="Кліки" />
+                        <Label layoutX="958.0" layoutY="302.0" text="Кількість унікальних користувачів" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabPays" text="Проведённые оплаты">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="text_field_search_pays" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <TableView fx:id="tbPays" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                          <columns>
+                            <TableColumn fx:id="pays_col_ID" prefWidth="75.0" text="ID Сплати" />
+                            <TableColumn fx:id="pays_col_idOrder" prefWidth="98.0" text="ID Замовлення" />
+                              <TableColumn fx:id="pays_col_date" prefWidth="92.0" text="Дата сплати" />
+                              <TableColumn fx:id="pays_col_amount" prefWidth="178.0" text="Сума" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="changePayBtn" layoutX="958.0" layoutY="425.0" mnemonicParsing="false" onAction="#changePay" prefHeight="40.0" prefWidth="160.0" text="Змінити" />
+                        <Button fx:id="addPayBtn" layoutX="1128.0" layoutY="425.0" mnemonicParsing="false" onAction="#addPay" prefHeight="40.0" prefWidth="160.0" text="Додати" />
+                        <Button fx:id="deletePayBtn" layoutX="958.0" layoutY="478.0" mnemonicParsing="false" onAction="#deletePay" prefHeight="40.0" prefWidth="330.0" text="Видалити рядок" />
+                        <TextField fx:id="tField_pays_id" layoutX="958.0" layoutY="135.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_pays_idOrder" layoutX="958.0" layoutY="201.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_pays_amount" layoutX="958.0" layoutY="330.0" prefWidth="330.0" />
+                        <Label layoutX="958.0" layoutY="107.0" text="ID Сплати" />
+                        <Label layoutX="958.0" layoutY="173.0" text="ID Замовлення" />
+                        <Label layoutX="958.0" layoutY="237.0" text="Дата сплати" />
+                        <Label layoutX="958.0" layoutY="307.0" text="Сума" />
+                        <DatePicker fx:id="Pays_datePay" layoutX="958.0" layoutY="263.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabMakeOrders" text="ВыполнениеЗаказов">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="736.0" prefWidth="1300.0">
+                     <children>
+                        <TextField fx:id="text_field_search_makeOrders" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <TextField fx:id="tField_makeOrder_id" layoutX="958.0" layoutY="140.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_makeOrder_idEmployee" layoutX="958.0" layoutY="205.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_makeOrder_idOrder" layoutX="958.0" layoutY="270.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_makeOrder_stage" layoutX="958.0" layoutY="335.0" prefWidth="330.0" />
+                        <Button fx:id="changeMakeOrderBtn" layoutX="958.0" layoutY="530.0" mnemonicParsing="false" onAction="#changeMakeOrder" prefHeight="40.0" prefWidth="160.0" text="Змінити" />
+                        <Button fx:id="addMakeOrderBtn" layoutX="1128.0" layoutY="530.0" mnemonicParsing="false" onAction="#addMakeOrder" prefHeight="40.0" prefWidth="160.0" text="Додати" />
+                        <Button fx:id="deleteMakeOrderBtn" layoutX="958.0" layoutY="580.0" mnemonicParsing="false" onAction="#deleteMakeOrder" prefHeight="40.0" prefWidth="330.0" text="Видалити рядок" />
+                        <Label layoutX="958.0" layoutY="113.0" text="ID" />
+                        <Label layoutX="958.0" layoutY="180.0" text="ID Працівника" />
+                        <Label layoutX="958.0" layoutY="246.0" text="ID заказу" />
+                        <Label layoutX="958.0" layoutY="309.0" text="Етап виконання" />
+                        <Label layoutX="958.0" layoutY="375.0" text="Дата етапу" />
+                        <TableView fx:id="tb_madeOrder" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                           <columns>
+                              <TableColumn fx:id="makeOrder_col_id" prefWidth="75.0" text="ID " />
+                              <TableColumn fx:id="makeOrder_col_idEmployees" prefWidth="100.0" text="ID Працівника" />
+                              <TableColumn fx:id="makeOrder_col_idOrder" prefWidth="88.0" text=" ID заказу" />
+                              <TableColumn fx:id="makeOrder_col_stage" prefWidth="158.0" text="Етап виконання" />
+                              <TableColumn fx:id="makeOrder_col_dataStage" prefWidth="97.0" text="Дата етапу" />
+                           </columns>
+                        </TableView>
+                        <DatePicker fx:id="makeOrder_date_stage" layoutX="958.0" layoutY="400.0" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabActType" text="ВидыДеятельности">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tField_search_actvType" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <TableView fx:id="tbActType" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                          <columns>
+                            <TableColumn fx:id="activType_col_id" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="activType_col_type" prefWidth="150.0" text="Вид діяльності" />
+                              <TableColumn fx:id="activType_col_salary" minWidth="0.0" prefWidth="152.0" text="Ставка" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="addActTypeBtn" layoutX="1128.0" layoutY="428.0" mnemonicParsing="false" onAction="#addActType" prefHeight="40.0" prefWidth="160.0" text="Додати" />
+                        <Button fx:id="changeActTypeBtn" layoutX="958.0" layoutY="428.0" mnemonicParsing="false" onAction="#changeActType" prefHeight="40.0" prefWidth="160.0" text="Змінити" />
+                        <Button fx:id="deleteActTypeBtn" layoutX="958.0" layoutY="478.0" mnemonicParsing="false" onAction="#deleteActTypeBtn" prefHeight="40.0" prefWidth="330.0" text="Видалити рядок" />
+                        <TextField fx:id="tField_actType_id" layoutX="958.0" layoutY="240.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_actType_type" layoutX="958.0" layoutY="305.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_actType_salary" layoutX="958.0" layoutY="370.0" prefHeight="25.0" prefWidth="330.0" />
+                        <Label layoutX="958.0" layoutY="209.0" text="ID" />
+                        <Label layoutX="958.0" layoutY="282.0" text="Вид діяльності" />
+                        <Label layoutX="958.0" layoutY="345.0" text="Ставка" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabOrdersType" text="ВидыЗаказов">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tField_search_orderType" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <TableView fx:id="tbOrderTypes" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                          <columns>
+                            <TableColumn fx:id="orderTypes_col_id" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="orderTypes_col_type" prefWidth="142.0" text="Вид замовлення" />
+                              <TableColumn fx:id="orderTypes_col_price" minWidth="8.0" prefWidth="146.0" text="Вартість" />
+                          </columns>
+                        </TableView>
+                        <Button fx:id="changeOrderTypeBtn" layoutX="958.0" layoutY="428.0" mnemonicParsing="false" onAction="#changeOrderType" prefHeight="40.0" prefWidth="160.0" text="Змінити" />
+                        <Button fx:id="addOrderTypeBtn" layoutX="1128.0" layoutY="428.0" mnemonicParsing="false" onAction="#addOrderType" prefHeight="40.0" prefWidth="160.0" text="Додати" />
+                        <Button fx:id="deleteOrderType" layoutX="958.0" layoutY="478.0" mnemonicParsing="false" onAction="#deleteOrderType" prefHeight="40.0" prefWidth="330.0" text="Видалити рядок" />
+                        <TextField fx:id="tField_orderTypes_price" layoutX="958.0" layoutY="370.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_orderTypes_type" layoutX="958.0" layoutY="305.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_orderTypes_id" layoutX="958.0" layoutY="240.0" prefHeight="25.0" prefWidth="330.0" />
+                        <Label layoutX="958.0" layoutY="215.0" text="ID" />
+                        <Label layoutX="958.0" layoutY="281.0" text="Вид замовлення" />
+                        <Label layoutX="958.0" layoutY="344.0" text="Вартість" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabSpecialists" text="Специалисты">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tField_search_specialist" layoutX="50.0" layoutY="40.0" prefHeight="25.0" prefWidth="460.0" />
+                        <Button fx:id="changeSpecialistBtn" layoutX="959.0" layoutY="558.0" mnemonicParsing="false" onAction="#changeSpecialist" prefHeight="40.0" prefWidth="160.0" text="Змінити" />
+                        <Button fx:id="addSpecialistBtn" layoutX="1126.0" layoutY="558.0" mnemonicParsing="false" onAction="#addSpecialist" prefHeight="40.0" prefWidth="160.0" text="Додати" />
+                        <TextField fx:id="tField_specialist_id" layoutX="958.0" layoutY="150.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_specialist_salary" layoutX="958.0" layoutY="470.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_specialist_bonus" layoutX="958.0" layoutY="405.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_specialist_makeOrder" layoutX="958.0" layoutY="345.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_specialist_amountOrd" layoutX="958.0" layoutY="280.0" prefHeight="25.0" prefWidth="330.0" />
+                        <TextField fx:id="tField_specialist_idActType" layoutX="958.0" layoutY="215.0" prefHeight="25.0" prefWidth="330.0" />
+                        <Button fx:id="deleteSpecialistBtn" layoutX="958.0" layoutY="605.0" mnemonicParsing="false" onAction="#deleteSpecialist" prefHeight="40.0" prefWidth="330.0" text="Видалити рядок" />
+                        <Label layoutX="959.0" layoutY="125.0" text="ID Працівника" />
+                        <Label layoutX="959.0" layoutY="192.0" prefHeight="17.0" prefWidth="128.0" text="ID виду діяльності" />
+                        <Label layoutX="959.0" layoutY="257.0" text="Виконаних замовлень" />
+                        <Label layoutX="959.0" layoutY="322.0" text="Принесених замовлень" />
+                        <Label layoutX="959.0" layoutY="381.0" prefHeight="17.0" prefWidth="48.0" text="Бонус" />
+                        <Label layoutX="959.0" layoutY="446.0" text="Зарплата" />
+                        <TableView fx:id="tb_Specialist" layoutX="5.0" layoutY="85.0" prefHeight="650.0" prefWidth="950.0">
+                           <columns>
+                              <TableColumn fx:id="specialist_col_idEmployees" prefWidth="75.0" text="ID Працівника" />
+                              <TableColumn fx:id="specialist_col_idActivType" prefWidth="131.0" text="ID виду діяльності" />
+                              <TableColumn fx:id="specialist_col_amountOrderMade" prefWidth="112.0" text="Виконаних замовлень" />
+                              <TableColumn minWidth="0.0" prefWidth="1.0" text="Column X" />
+                              <TableColumn fx:id="specialist_col_bonus" prefWidth="76.0" text="Бонус" />
+                              <TableColumn fx:id="specialist_col_salary" minWidth="3.0" prefWidth="90.0" text="Зарплата" />
+                              <TableColumn fx:id="specialist_col_salaryDate" prefWidth="123.0" text="Дата отримання ЗП" />
+                              <TableColumn fx:id="specialist_col_getOrders" prefWidth="144.0" text="Принесено замовлень" />
+                           </columns>
+                        </TableView>
+                        <DatePicker fx:id="specialist_date_salary" layoutX="959.0" layoutY="514.0" />
+                        <Label layoutX="959.0" layoutY="495.0" text="Дата отримання ЗП" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabJournal" text="Журнал змін">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tb_Journal" layoutX="5.0" layoutY="5.0" prefHeight="720.0" prefWidth="1300.0">
+                          <columns>
+                            <TableColumn fx:id="col_journal_id" prefWidth="75.0" text="ID" />
+                            <TableColumn fx:id="col_journal_date" prefWidth="180.0" text=" дата" />
+                              <TableColumn fx:id="col_journal_login" prefWidth="135.0" text="Логін " />
+                              <TableColumn fx:id="col_journal_role" prefWidth="190.0" text="Роль" />
+                              <TableColumn fx:id="col_journal_text" prefWidth="709.0" text="Опис" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Button fx:id="openRol2Window" layoutX="1041.0" layoutY="10.0" mnemonicParsing="false" onAction="#getRol2Window" prefHeight="40.0" prefWidth="120.0" text="Роль 2" />
+      <Button fx:id="openRol3Window" layoutX="1180.0" layoutY="10.0" mnemonicParsing="false" onAction="#getRol3Window" prefHeight="40.0" prefWidth="120.0" text="Роль 3" />
+   </children>
+</AnchorPane>
